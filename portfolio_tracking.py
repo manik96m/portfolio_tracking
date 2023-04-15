@@ -10,6 +10,7 @@ number_of_shares = sheet.range("C2").options(expand='down').value
 # tickers = ["TD.TO", "BNS.TO"]
 # number_of_shares = [10, 20]
 
+
 def main():
     pull_stocks_data()
     format_data()
@@ -105,13 +106,13 @@ def populate_stock_value(index, open_price, number_of_shares):
 # DRIP cell RED if value N/A or less than 1, otherwise GREEN
 def format_data():
     try:
-        drips = sheet.range("K2").options(expand='down').value
+        drips = sheet.range("N2").options(expand='down').value
 
         for index, drip in enumerate(drips):
             if drip != "N/A" and int(drip) >= 1:
-                sheet.range("K" + str(index + 2)).color = (89, 255, 77)
+                sheet.range("N" + str(index + 2)).color = (89, 255, 77)
             else:
-                sheet.range("K" + str(index + 2)).color = (255, 77, 77)
+                sheet.range("N" + str(index + 2)).color = (255, 77, 77)
     except:
         print(f"there was an error")
 
